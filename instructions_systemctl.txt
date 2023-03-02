@@ -1,0 +1,4 @@
+systemctl daemon-reload
+systemctl start hello
+systemctl stop hello
+systemctl status hello

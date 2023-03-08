@@ -33,7 +33,6 @@ jobs:
   connection:
     runs-on: ubuntu-latest
     steps:
-      - name: SSH port forwarding action
       - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
           ORIGIN: ${{ secrets.UBUNTU_SERVER_LOGIN }}

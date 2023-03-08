@@ -34,11 +34,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SSH port forwarding action
-        uses: webfactory/ssh-agent@v0.5.0
+      - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
-          ip: $ IP_ADDRESS
-          ssh-user: $ UBUNTU_SERVER_LOGIN
-          ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
+          ORIGIN: ${{ secrets.UBUNTU_SERVER_LOGIN }}
+          SSHKEY: ${{ secrets.SSH_GITHUB_ACTION }}
+          USER: ${{ secrets.UBUNTU_SERVER_LOGIN }}
       - run: touch ~/der1.txt
           
   

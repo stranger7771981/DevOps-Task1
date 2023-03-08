@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SSH port forwarding action
-        uses: selfagency/ssh-port-forward-action@v1.0.6
+        uses: webfactory/ssh-agent@v0.5.0
         with:
           ip: $ IP_ADDRESS
           ssh-key: ${{ secrets.SSH_GITHUB_ACTION }}

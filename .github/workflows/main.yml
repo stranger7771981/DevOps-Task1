@@ -39,7 +39,6 @@ jobs:
           ip: $ IP_ADDRESS
           ssh-user: $ UBUNTU_SERVER_LOGIN
           ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
-      - name: Print
-      - run: echo "Hello Deploy"  
+      - run: systemctl start hello.service
           
   

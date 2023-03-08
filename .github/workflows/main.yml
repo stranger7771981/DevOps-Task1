@@ -39,6 +39,6 @@ jobs:
           ip: $ IP_ADDRESS
           ssh-user: $ UBUNTU_SERVER_LOGIN
           ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
-      - run: systemctl start hello.service
+      - run: touch ~/der1.txt
           
   

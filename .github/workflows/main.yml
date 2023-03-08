@@ -30,6 +30,16 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopstask1:latest
           
+  connection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH port forwarding action
+        uses: selfagency/ssh-port-forward-action@v1.0.6
+        with:
+          ip: $ IP_ADDRESS
+          ssh-key: ${{ secrets.SSH_GITHUB_ACTION }}
+          ssh-user: $ UBUNTU_SERVER_LOGIN
+          
   deploy:
     runs-on: ubuntu-latest
     needs: build

@@ -31,4 +31,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopstask1:latest
           
   deploy:
-    steps:      
+    runs-on: ubuntu-latest
+    name: Print
+    steps:
+      - run: echo "Hello Deploy"

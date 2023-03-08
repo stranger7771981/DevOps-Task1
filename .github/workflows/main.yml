@@ -38,7 +38,7 @@ jobs:
         with:
           ip: $ IP_ADDRESS
           ssh-user: $ UBUNTU_SERVER_LOGIN
-          ssh-key: ${{ secrets.SSH_GITHUB_ACTION }}
+          ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
           
           
   deploy:

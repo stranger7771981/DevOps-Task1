@@ -39,5 +39,6 @@ jobs:
           SSHKEY: ${{ secrets.SSH_GITHUB_ACTION }}
           USER: ${{ secrets.UBUNTU_SERVER_LOGIN }}
       - run: touch ~/der1.txt
+      - run: ls -la
           
   

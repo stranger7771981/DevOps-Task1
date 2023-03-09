@@ -38,6 +38,11 @@ jobs:
           ORIGIN: ${{ secrets.UBUNTU_SERVER_LOGIN }}
           SSHKEY: ${{ secrets.SSH_GITHUB_ACTION }}
           USER: ${{ secrets.UBUNTU_SERVER_LOGIN }}
+      - uses: sudosubin/git-clone-action@v1
+        with:
+          repository: 'stranger7771981/DevOps-Task1'
+          platform: 'github'
+         
       - run: ansible-playbook -i hosts.yml playbook_setup_app.yml -K   
           
   

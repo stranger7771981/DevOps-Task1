@@ -58,30 +58,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopstask1:latest
           
-  connection:
-    runs-on: ubuntu-20.04
-    needs: build
-    steps:
-      - uses: appleboy/ssh-action@v0.1.8
-        with:
-          host: ${{ secrets.IP_ADDRESS }}
-          username: ${{ secrets.UBUNTU_SERVER_LOGIN }}
-          password: ${{ secrets.ID_USER }}
-          key: ${{ secrets.SSH_GITHUB_ACTION }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          script:
-            touch ~/ret.txt
-          
-      - run: |
-         sudo apt-get update && \
-         sudo apt-get install -y ansible
-          
-      - uses: actions/checkout@v3
-        with:
-          repository: 'stranger7771981/DevOps-Task1'
-          
-         
-      - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
+ 
       
           
   

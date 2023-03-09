@@ -6,16 +6,15 @@ on:
       - "main"
 
 jobs:
-  connection:
+  DEPLOY:
     runs-on: ubuntu-20.04
-    needs: build
     steps:
       - uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.IP_ADDRESS }}
-          username: ${{ secrets.UBUNTU_SERVER_LOGIN }}
-          password: ${{ secrets.ID_USER }}
-          key: ${{ secrets.SSH_GITHUB_ACTION }}
+          #username: ${{ secrets.UBUNTU_SERVER_LOGIN }}
+          #password: ${{ secrets.ID_USER }}
+          #key: ${{ secrets.SSH_GITHUB_ACTION }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script:
             whoami

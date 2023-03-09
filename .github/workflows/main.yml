@@ -34,12 +34,12 @@ jobs:
     runs-on: ubuntu-20.04
     needs: build
     steps:
-      - uses: webfactory/ssh-agent@v0.7.0
+      - uses: appleboy/ssh-action@v0.1.8
         with:
-          hostname: ${{ secrets.IP_ADDRESS }}
-          user_name: ${{ secrets.UBUNTU_SERVER_LOGIN }}
-          user_password: ${{ secrets.ID_USER }}
-          pubic_key: ${{ secrets.SSH_GITHUB_ACTION }}
+          host: ${{ secrets.IP_ADDRESS }}
+          username: ${{ secrets.UBUNTU_SERVER_LOGIN }}
+          password: ${{ secrets.ID_USER }}
+          key: ${{ secrets.SSH_GITHUB_ACTION }}
           
       - run: |
          sudo apt-get update && \

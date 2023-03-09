@@ -50,9 +50,7 @@ jobs:
           repository: 'stranger7771981/DevOps-Task1'
           
          
-      - uses: tomasnorre/ansible-cli-action@0.0.5
-        with:
-          command: "ansible-playbook -i hosts.yml playbook_setup_app.yml"
+      - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
       
           
   

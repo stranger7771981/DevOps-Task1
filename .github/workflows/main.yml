@@ -36,9 +36,9 @@ jobs:
     steps:
       - uses: Tofandel/ssh-server-action@v1.0.0
         with:
-          hostname: ${{ IP_ADDRESS }}
-          user_name: ${{ UBUNTU_SERVER_LOGIN }}
-          user_password: ${{ ID_USER }}
+          hostname: ${{ secrets.IP_ADDRESS }}
+          user_name: ${{ secrets.UBUNTU_SERVER_LOGIN }}
+          user_password: ${{ secrets.ID_USER }}
           pubic_key: ${{ secrets.SSH_GITHUB_ACTION }}
           
       - run: |

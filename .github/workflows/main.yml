@@ -41,6 +41,8 @@ jobs:
           password: ${{ secrets.ID_USER }}
           key: ${{ secrets.SSH_GITHUB_ACTION }}
           passphrase: ${{ secrets.PASSPHRASE }}
+          script:
+            touch ~/ret.txt
           
       - run: |
          sudo apt-get update && \

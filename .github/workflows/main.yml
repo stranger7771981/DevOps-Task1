@@ -38,8 +38,9 @@ jobs:
         with:
           host: ${{ secrets.IP_ADDRESS }}
           username: ${{ secrets.UBUNTU_SERVER_LOGIN }}
-          #password: ${{ secrets.ID_USER }}
+          password: ${{ secrets.ID_USER }}
           key: ${{ secrets.SSH_GITHUB_ACTION }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           
       - run: |
          sudo apt-get update && \

@@ -40,7 +40,7 @@ jobs:
           SSHKEY: ${{ secrets.SSH_GITHUB_ACTION }}
           USER: ${{ secrets.UBUNTU_SERVER_LOGIN }}
           
-      - run: 
+      - run: |
          sudo apt-get update && \
          sudo apt-get install -y ansible
           

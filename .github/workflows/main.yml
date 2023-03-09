@@ -9,9 +9,9 @@ jobs:
   DEPLOY:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: appleboy/ssh-action@v0.1.8
         with:
-          host: 192.168.31.164
+          host: http://192.168.31.164
           username: devops 
           password: lucky777
           key: ${{ secrets.SSH_GITHUB_ACTION }}

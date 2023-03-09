@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: appleboy/ssh-action@v0.1.8
         with:
-          host: ${{ secrets.IP_ADDRESS }}
-          #username: ${{ secrets.UBUNTU_SERVER_LOGIN }}
-          #password: ${{ secrets.ID_USER }}
-          key: ${{ secrets.SSH_GITHUB_ACTION }}
-          #passphrase: ${{ secrets.PASSPHRASE }}
+          host: ${{ 192.168.31.164 }}
+          username: ${{ devops }}
+          password: ${{ lucky777 }}
+          #key: ${{ secrets.SSH_GITHUB_ACTION }}
+          passphrase: ${{ lucky }}
           script:
             whoami
             touch ~/ret.txt

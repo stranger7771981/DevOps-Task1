@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: build
     steps:
-      - uses: Tofandel/ssh-server-action@v1.0.0
+      - uses: webfactory/ssh-agent@v0.7.0
         with:
           hostname: ${{ secrets.IP_ADDRESS }}
           user_name: ${{ secrets.UBUNTU_SERVER_LOGIN }}

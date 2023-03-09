@@ -11,10 +11,10 @@ jobs:
     steps:
       - uses: appleboy/ssh-action@v0.1.8
         with:
-          host: devops@192.168.31.164
-          #username: devops 
+          host: 192.168.31.164
+          username: devops 
           password: lucky777
-          #key: ${{ secrets.SSH_GITHUB_ACTION }}
+          key: ${{ secrets.SSH_GITHUB_ACTION }}
           passphrase: lucky
           script:
             whoami

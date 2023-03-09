@@ -1,0 +1,21 @@
+---
+- name: Setup App
+  hosts: all
+  become: true
+
+  tasks:
+
+  - name: Ping
+    ping:
+
+  - name: Copy hello.sevice
+    copy:
+      src: ./DevOps-Task1/Service/hello.service
+      dest: /etc/systemd/system/hello.service
+      remote_src: true
+
+  - name: Run service
+    ansible.builtin.service:
+      name: hello.service
+      state: started
+      enabled: true

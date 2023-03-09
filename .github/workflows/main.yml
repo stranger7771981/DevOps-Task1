@@ -38,7 +38,6 @@ jobs:
           ORIGIN: ${{ secrets.UBUNTU_SERVER_LOGIN }}
           SSHKEY: ${{ secrets.SSH_GITHUB_ACTION }}
           USER: ${{ secrets.UBUNTU_SERVER_LOGIN }}
-      - run: touch ~/der1.txt
-      - run: ls -la
+      - run: ansible-playbook -i hosts.yml playbook_setup_app.yml -K   
           
   

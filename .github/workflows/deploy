@@ -1,0 +1,20 @@
+name: DEPLOY
+
+on: 
+  push:
+    branches:
+      - "main"
+      
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Run command on remote server
+        uses: D3rHase/ssh-command-action@v0.2.2
+        with:
+          host: ${{ secrets.IP_ADDRESS }}
+          user: ${{ secrets.UBUNTU_SERVER_LOGIN }}
+          private_key: ${{ secrets.SSH_GITHUB_ACTION }}
+          run: echo "Hello"

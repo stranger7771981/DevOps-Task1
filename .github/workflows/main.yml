@@ -44,6 +44,7 @@ jobs:
           repository: 'stranger7771981/DevOps-Task1'
           
          
-      - run: ansible-playbook -i hosts.yml playbook_setup_app.yml  
+      - run: ansible-playbook --user ${{ secrets.ID_USER }} -i hosts.yml playbook_setup_app.yml
+      
           
   

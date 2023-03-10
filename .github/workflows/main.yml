@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "main"
+      
+env: 
+  HOST: 192.168.31.164
 
 jobs:
   DEPLOY:
@@ -16,11 +19,10 @@ jobs:
       - run: |
          sudo apt-get install -y ansible
          
-      - run: ansible-playbook playbook_setup_app.yml
+      - run: ansible-playbook -i hosts.txt playbook_setup_app.yml
       
       - uses: webfactory/ssh-agent@v0.7.0
         with:
-          host: 192.168.31.164
           ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
           
       

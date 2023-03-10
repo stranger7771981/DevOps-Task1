@@ -1,6 +1,7 @@
 ---
 - name: Setup App
   hosts: all
+  remote_user: ubuntu
   become: true
 
   tasks:

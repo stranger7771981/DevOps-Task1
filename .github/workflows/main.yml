@@ -7,29 +7,12 @@ on:
       
 env: 
   HOST: IP_ADDRESS
-
+  
 jobs:
-  DEPLOY:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: 'stranger7771981/DevOps-Task1'
-      - run: ls -la
-      - run: |
-         sudo apt-get install -y ansible
-         
-      - run: ansible-playbook -i hosts.txt playbook_setup_app.yml
-      
-      - uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
-          
-      
-
 
   build:
-    runs-on: ubuntu-20.04
+  
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout
@@ -51,6 +34,23 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopstask1:latest
+
+
+  DEPLOY:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: 'stranger7771981/DevOps-Task1'
+      - run: ls -la
+      - run: |
+         sudo apt-get install -y ansible
+         
+      - run: ansible-playbook -i hosts.txt playbook_setup_app.yml
+      
+      - uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
           
  
       

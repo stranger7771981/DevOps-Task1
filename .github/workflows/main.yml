@@ -6,7 +6,7 @@ on:
       - "main"
       
 env: 
-  HOST: 192.168.31.164
+  HOST: IP_ADDRESS
 
 jobs:
   DEPLOY:

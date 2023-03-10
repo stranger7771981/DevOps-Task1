@@ -16,7 +16,7 @@ jobs:
       - run: |
          sudo apt-get install -y ansible
          
-      - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
+      - run: ansible-playbook playbook_setup_app.yml
       - uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}

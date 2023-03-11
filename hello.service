@@ -1,18 +1,13 @@
 [Unit]
-Description=hello Go Service
-ConditionPathExists=/home/denis/devops/Task1/DevOps-Task1
+Description=hello service
 After=network.target
 
 [Service]
 Type=simple
-User=burn
-Group=burn
-WorkingDirectory=/home/denis/devops/Task1/DevOps-Task1
-ExecStart=/usr/local/go/bin/go run .
-Restart=on-failure
-RestartSec=10
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=appgoservice
+User=devops
+Group=devops
+ExecStart=~/devops/Task1/DevOps-Task1/bin
+Restart=always
+
 [Install]
 WantedBy=multi-user.target

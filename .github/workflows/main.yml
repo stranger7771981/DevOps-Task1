@@ -35,18 +35,22 @@ jobs:
 
   DEPLOY:
     runs-on: ubuntu-latest
+    
     steps:
+    
       - uses: appleboy/ssh-action@master
         with:
           host: 192.46.236.15
           username: devops
           key: ${{ secrets.SSH_GITHUB_ACTION }}
           
+      - name: Run playbook   
       - run: sudo apt-get install -y ansible
+      
       - run: |
          ls -la 
          pwd 
-      - name: Run playbook
+      
       - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
       - uses: actions/checkout@v3
         with:

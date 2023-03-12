@@ -67,7 +67,7 @@ jobs:
     # Optional, SSH private key
           key: ${{secrets.ANSIBLE_GITHUB_ACTION}}
     # Optional, literal inventory file contents
-          inventory: hosts.yml
+          #inventory: hosts.yml
     # Optional, SSH known hosts file content
           #known_hosts: .known_hosts
 

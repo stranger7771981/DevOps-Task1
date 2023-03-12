@@ -43,6 +43,7 @@ jobs:
           host: 192.46.236.15
           username: devops
           key: ${{ secrets.SSH_GITHUB_ACTION }}
+          
       - name: git clone    
       - uses: actions/checkout@v3
         with:
@@ -54,7 +55,6 @@ jobs:
       #- run: |
         # ls -la 
          #pwd 
-       
       - name: RUN PLAYBOOK
       - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
       

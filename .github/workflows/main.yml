@@ -56,7 +56,7 @@ jobs:
          ls -la 
          pwd 
       - name: RUN PLAYBOOK
-        run: ansible-playbook -i hosts.yml playbook_setup_app.yml
+        run: ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i hosts.yml playbook_setup_app.yml
       
 
          

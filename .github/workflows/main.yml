@@ -58,7 +58,7 @@ jobs:
       #- name: RUN PLAYBOOK
        # run: ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i hosts.yml --extra-vars "ansible_host=devops@192.168.31.164 ansible_password=lucky777 host_key_checking = False" playbook_setup_app.yml
       - name: Run playbook
-        run: ansible-playbook --extra-vars "ansible_key=$ANSIBLE_GITHUB_ACTION host_key_checking = true" ansible/playbook.yml 
+        run: ansible-playbook --extra-vars "ansible_key=$ANSIBLE_GITHUB_ACTION host_key_checking = true" playbook_setup_app.yml 
         #uses: dawidd6/action-ansible-playbook@v2
         #with:
     # Required, playbook filepath

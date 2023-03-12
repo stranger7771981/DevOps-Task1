@@ -43,18 +43,18 @@ jobs:
           username: devops
           key: ${{ secrets.SSH_GITHUB_ACTION }}
           
-      - name: INSTALL ANSIBLE 
+      #- name: INSTALL ANSIBLE 
       
-      - run: sudo apt-get install -y ansible
-      - name: PWD
+      #- run: sudo apt-get install -y ansible
+      #- name: PWD
       - run: |
          ls -la 
          pwd 
       - name: RUN PLAYBOOK
       - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
-      - uses: actions/checkout@v3
-        with:
-          repository: 'stranger7771981/DevOps-Task1'
+      #- uses: actions/checkout@v3
+       # with:
+        #  repository: 'stranger7771981/DevOps-Task1'
 
          
       

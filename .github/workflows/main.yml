@@ -65,7 +65,7 @@ jobs:
     # Optional, directory where playbooks live
           directory: ./
     # Optional, SSH private key
-          key: ${{secrets.SSH_GITHUB_ACTION}}
+          key: ${{secrets.ANSIBLE_GITHUB_ACTION}}
     # Optional, literal inventory file contents
           #inventory: hosts.yml
     # Optional, SSH known hosts file content

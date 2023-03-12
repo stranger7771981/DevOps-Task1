@@ -50,8 +50,8 @@ jobs:
       #- run: |
         # ls -la 
          #pwd 
-      - name: RUN PLAYBOOK
-      - run: ansible-playbook -i hosts.yml playbook_setup_app.yml
+      #- name: RUN PLAYBOOK
+      #- run: ansible-playbook -i hosts.yml playbook_setup_app.yml
       #- uses: actions/checkout@v3
        # with:
         #  repository: 'stranger7771981/DevOps-Task1'

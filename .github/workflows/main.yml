@@ -44,8 +44,9 @@ jobs:
           username: devops
           key: ${{ secrets.SSH_GITHUB_ACTION }}
           
-      - name: Run playbook   
-      - run: sudo apt-get install -y ansible
+      - name: Run playbook  
+      
+      #- run: sudo apt-get install -y ansible
       
       - run: |
          ls -la 

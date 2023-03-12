@@ -11,7 +11,7 @@
 
   - name: Copy hello.sevice
     copy:
-      src: ./DevOps-Task1/Service/hello.service
+      src: ./DevOps-Task1/hello.service
       dest: /etc/systemd/system/hello.service
       remote_src: true
 

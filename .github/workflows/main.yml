@@ -55,9 +55,21 @@ jobs:
         run: |
          ls -la 
          pwd 
-      - name: RUN PLAYBOOK
-        run: ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i hosts.yml --extra-vars "ansible_host=devops@192.168.31.164 ansible_password=lucky777 host_key_checking = False" playbook_setup_app.yml
-      
+      #- name: RUN PLAYBOOK
+       # run: ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i hosts.yml --extra-vars "ansible_host=devops@192.168.31.164 ansible_password=lucky777 host_key_checking = False" playbook_setup_app.yml
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+    # Required, playbook filepath
+          playbook: playbook_setup_app.yml
+    # Optional, directory where playbooks live
+          directory: ./
+    # Optional, SSH private key
+          key: ${{secrets.SSH_GITHUB_ACTION}}
+    # Optional, literal inventory file contents
+          inventory: hosts.yml
+    # Optional, SSH known hosts file content
+          known_hosts: .known_hosts
 
          
       

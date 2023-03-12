@@ -41,6 +41,7 @@ jobs:
           host: 192.46.236.15
           username: devops
           key: ${{ secrets.SSH_GITHUB_ACTION }}
+          
       - run: sudo apt-get install -y ansible
       - run: |
          ls -la 

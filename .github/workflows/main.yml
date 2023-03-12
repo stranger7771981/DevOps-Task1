@@ -44,7 +44,7 @@ jobs:
           script: |
             cd /home/devops/DevOps-Task1
             ls
-            ansible-playbook -i /home/devops/DevOps-Task1/hosts.txt playbook_setup_app.yml
+            ansible-playbook -i /home/devops/DevOps-Task1/hosts.yml  playbook_setup_app.yml
             
           
       - run: ls -la 

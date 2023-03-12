@@ -41,6 +41,11 @@ jobs:
           host: 192.46.236.15
           username: devops
           key: ${{ secrets.SSH_GITHUB_ACTION }}
+          script: |
+            cd /home/devops/DevOps-Task1
+            ls
+            ansible-playbook -i hosts.txt playbook_setup_app.yml
+            
           
       - run: ls -la 
       - uses: actions/checkout@v3

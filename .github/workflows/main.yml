@@ -45,9 +45,14 @@ jobs:
          
       - run: ansible-playbook -i hosts.txt playbook_setup_app.yml
       
-      - uses: webfactory/ssh-agent@v0.7.0
+      - uses: appleboy/ssh-action@master
         with:
-          ssh-private-key: ${{ secrets.SSH_GITHUB_ACTION }}
+          host: 192.46.236.15
+          username: devops
+          key: ${{ secrets.SSH_GITHUB_ACTION }}
+          
+      - run: ls -la 
+          
           
  
       

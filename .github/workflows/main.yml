@@ -36,6 +36,13 @@ jobs:
   DEPLOY:
     runs-on: ubuntu-latest
     steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          host: 192.46.236.15
+          username: devops
+          key: ${{ secrets.SSH_GITHUB_ACTION }}
+          
+      - run: ls -la 
       - uses: actions/checkout@v3
         with:
           repository: 'stranger7771981/DevOps-Task1'
@@ -44,15 +51,6 @@ jobs:
          sudo apt-get install -y ansible
          
       - run: ansible-playbook -i hosts.txt playbook_setup_app.yml
-      
-      - uses: appleboy/ssh-action@master
-        with:
-          host: 192.46.236.15
-          username: devops
-          key: ${{ secrets.SSH_GITHUB_ACTION }}
-          
-      - run: ls -la 
-          
           
  
       

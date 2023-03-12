@@ -63,13 +63,13 @@ jobs:
     # Required, playbook filepath
           playbook: playbook_setup_app.yml
     # Optional, directory where playbooks live
-          directory: ./
+          directory: ./Devops-Task1
     # Optional, SSH private key
           key: ${{secrets.ANSIBLE_GITHUB_ACTION}}
     # Optional, literal inventory file contents
-          #inventory: hosts.yml
+          inventory: hosts.yml
     # Optional, SSH known hosts file content
-          known_hosts: .known_hosts
+          #known_hosts: .known_hosts
 
          
       

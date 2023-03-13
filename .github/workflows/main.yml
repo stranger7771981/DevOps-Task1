@@ -45,7 +45,15 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
         
-      - name: Run Ansible
+      - name: Checkout private tools
+        uses: actions/checkout@v3
+        with:
+          repository: stranger7771981/DevOps-Task1
+          ssh-known-hosts: ${{ secrets.SSH_HOST }}
+          path: /home/devops
+
+        
+      - name: Run SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -54,11 +62,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             pwd
-            apt-get install -y ansible
-            git clone git@github.com:stranger7771981/DevOps-Task1.git
-            ansible-playbook all -i hosts.yml -k playbook_setup_app.yml
 
-         
+      - name: Ansible
+        run:  ansible-playbook -i hosts.yml playbook_setup_app.yml 
       
       
           

@@ -50,7 +50,6 @@ jobs:
         with:
           repository: stranger7771981/DevOps-Task1
           ssh-known-hosts: ${{ secrets.SSH_HOST }}
-          path: /home/devops
 
         
       - name: Run SSH

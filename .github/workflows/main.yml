@@ -54,7 +54,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             pwd
-            sudo apt-get install -y ansible
+            apt-get install -y ansible
+            git clone git@github.com:stranger7771981/DevOps-Task1.git
             ansible-playbook all -i hosts.yml -k playbook_setup_app.yml
 
          

@@ -37,40 +37,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: ssh connection
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_GITHUB_ACTION }} 
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
+        
+      - name: Run Ansible
         uses: appleboy/ssh-action@master
         with:
-          host: 192.46.236.15
-          username: devops
-          key: ${{ secrets.SSH_GITHUB_ACTION }}
-          
-      - name: git clone    
-        uses: actions/checkout@v3
-        with:
-          repository: 'stranger7771981/DevOps-Task1' 
-      - name: INSTALL ANSIBLE 
-      
-        run: sudo apt-get install -y ansible
-      - name: PWD
-        run: |
-         ls -la 
-         pwd 
-      #- name: RUN PLAYBOOK
-       # run: ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i hosts.yml --extra-vars "ansible_host=devops@192.168.31.164 ansible_password=lucky777 host_key_checking = False" playbook_setup_app.yml
-      - name: Run playbook
-        run: ansible-playbook all -i hosts.yml -k playbook_setup_app.yml 
-        #uses: dawidd6/action-ansible-playbook@v2
-        #with:
-    # Required, playbook filepath
-          #playbook: playbook_setup_app.yml
-    # Optional, directory where playbooks live
-          #directory: ./Devops-Task1
-    # Optional, SSH private key
-          #key: ${{ secrets.ANSIBLE_GITHUB_ACTION }}
-    # Optional, literal inventory file contents
-          #inventory: hosts.yml
-    # Optional, SSH known hosts file content
-          #known_hosts: .known_hosts
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            sudo apt-get install -y ansible
+            ansible-playbook all -i hosts.yml -k playbook_setup_app.yml
 
          
       
